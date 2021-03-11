@@ -1,10 +1,10 @@
-<h1>Products</h1>
+<h1 class="text-center">Products</h1>
   <div *ngFor="let product of productList">
       <div class="card">
         <div class="row">
             <div>{{product.name}}</div><button (click)="addProductToCart(product)">+</button>
         </div>
-        <div>
+        <div class="text-center">
            RS: {{product.price}}
         </div>
     </div>
