@@ -1,0 +1,15 @@
+<h1>Products</h1>
+  <div *ngFor="let product of productList">
+      <div class="card">
+        <div class="row">
+            <div>{{product.name}}</div><button (click)="addProductToCart(product)">+</button>
+        </div>
+        <div>
+           RS: {{product.price}}
+        </div>
+    </div>
+
+  </div>
+
+  <h3>Total (Rs): {{totalAmount}}</h3>
+  <button (click)="checkout()">Add and Procced to Cart with {{cartProductList.length }} Products</button>

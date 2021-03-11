@@ -1,0 +1,12 @@
+<h3>Cart ({{this.userDetails.cart.length}})</h3>
+  <div *ngFor="let product of this.userDetails.cart">
+      <div class="card">
+        <div class="row">
+            <div>{{product.name}}  x RS: {{product.price}} = {{product.nprice}} </div>
+        </div>
+    </div>
+
+  </div>
+
+  <h3>Total (Rs): {{this.userDetails.totalAmount}}</h3>
+  <button routerLink="/login" >Proceed and logout</button>
