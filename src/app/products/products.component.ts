@@ -9,13 +9,20 @@ import { userService } from '../SharedService/userService';
 })
 export class ProductsComponent implements OnInit {
 
+  
   constructor(private userservice : userService, private router :Router) { }
 
   ngOnInit(): void {
+    
     var aValue:any;
     aValue =localStorage.getItem('userdetails');
     this.userDetails = JSON.parse(aValue);
-    if(this.userDetails.cart){
+
+    var date = new Date(this.userDetails.dateModifided);
+    var dateCheck = date.setDate(date.getDate()+1);
+
+    if(this.userDetails.cart &&new Date(dateCheck) > new Date()){
+      
       this.cartProductList = this.userDetails.cart;
       this.totalAmt();
     }
@@ -33,7 +40,7 @@ export class ProductsComponent implements OnInit {
    ];
   
   
-  cartProductList = [{'name': "", 'price': 0,'qty':0,'nprice':0}];
+  cartProductList = Array();
  
   addProductToCart(product:any) {
     const productExistInCart = this.cartProductList.find(({name}) => name === product.name);
@@ -57,12 +64,10 @@ export class ProductsComponent implements OnInit {
   checkout(){
     var aValue:any;
     aValue= localStorage.getItem('userdetails');
-    if(this.cartProductList.length === 0){
+    if(this.totalAmount === 0){
       return alert("Please add product in cart")
     }
-    var remove = this.cartProductList.filter(data =>data.price == 0)
-  
-    remove.length > 0? this.cartProductList.unshift():this.cartProductList;
+    
     let user =JSON.parse(aValue);
     let jsonSend = {
       'id':user._id,
