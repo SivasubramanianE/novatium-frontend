@@ -66,8 +66,7 @@ export class ProductsComponent implements OnInit {
       if(this.userDetails.dateModifided){
       var date = new Date(this.userDetails.dateModifided);
       var dateCheck = date.setDate(date.getDate()+1);
-      
-      if(this.userDetails.cart && new Date(dateCheck) > new Date()){
+      if(this.userDetails.cart >0 && new Date(dateCheck) > new Date()){
         this.cartProductList = this.userDetails.cart;
         this.totalAmt();
       }
