@@ -1,15 +1,34 @@
 <h1 class="text-center">Products</h1>
-  <div *ngFor="let product of productList">
-      <div class="card">
-        <div class="row">
-            <div>{{product.name}}</div><button (click)="addProductToCart(product)">+</button>
+<div *ngFor="let product of productList">
+  <div class="card">
+    <div class="row">
+      <div>
+        <img class="product-img" width="200" height="200" src="{{product.image}}" />
+      </div>
+      
+      <div class="right-spacing">
+        <h4>{{product.title}}</h4>
+
+        <div>
+          <span class="desc">{{product.description}} </span>
         </div>
-        <div class="text-center">
-           RS: {{product.price}}
+
+        <div class="pricing-section">
+          <h5>
+            RS: {{product.price}}
+          </h5>
+          <div>
+            <button (click)="addProductToCart(product)">Add to cart</button>
+          </div>
         </div>
+
+      </div>
+
     </div>
-
   </div>
+</div>
 
-  <h3>Total (Rs): {{totalAmount}}</h3>
-  <button (click)="checkout()">Add and Procced to Cart with {{cartProductList.length }} Products</button>
+<h3 class="footer-css">Total (Rs): {{totalAmount |currency:"INR":"symbol"}}</h3>
+<div class="footer-css">
+<button (click)="checkout()">Add and Procced to Cart with {{cartProductList.length }} Products</button>
+</div>

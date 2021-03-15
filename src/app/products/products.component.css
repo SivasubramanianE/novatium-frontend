@@ -2,9 +2,24 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     margin: 50px 100px;
+    padding: 25px;
 }
 
 .row{
 display: flex;
-justify-content: space-around;
+justify-content: start;
+}
+
+.right-spacing{
+    padding: 0px 10%;
+}
+
+.pricing-section{
+        display: flex;
+        justify-content: space-between;
+        padding: 25px 0px;
+}
+
+.footer-css{
+    margin: 10px 100px;
 }

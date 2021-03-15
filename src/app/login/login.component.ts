@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     if(this.loginForm.invalid){
       return;
-      
     }
     
   }
@@ -44,11 +43,16 @@ export class LoginComponent implements OnInit {
         if(result.success){
           localStorage.setItem("userdetails", JSON.stringify(result.data));
          this.router.navigate(['/product']);
+        }else{
+         
         }
-      })
+      },
+      error => {
+        alert("Error in Login");
+    })
       
     }else{
-      this.message ="email or password is incorrect";
+      alert("email or password is incorrect");
     }
 
   }

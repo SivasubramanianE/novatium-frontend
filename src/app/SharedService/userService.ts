@@ -20,6 +20,10 @@ export class userService {
       return this.httpclient.post(url+'/user/cart',body)
     }
 
+    proceedOrder(body:any){
+      return this.httpclient.post(url+'/user/checkout',body)
+    }
+
     
 
 

@@ -39,7 +39,10 @@ export class RegisterComponent implements OnInit {
         if(data.success){
           this.router.navigate(['/login']);
         }
-      });
+      },
+      error => {
+        alert("Error in Register");
+    });
       
       }else{
         alert("fill all fields");

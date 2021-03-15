@@ -1,12 +1,24 @@
-<h3 class="text-center">Cart ({{this.userDetails.cart.length}})</h3>
-  <div *ngFor="let product of this.userDetails.cart">
-      <div class="card">
-        <div class="row">
-            <div>{{product.name}}  x RS: {{product.price}} = {{product.nprice}} </div>
-        </div>
-    </div>
+<h4>Cart Summary({{this.userDetails.cart.length}})</h4>
+<table>
+  <tr>
+    <th>Product Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Total price</th>
+  </tr>
+  <tr *ngFor="let product of this.userDetails.cart">
+    <td>{{product.title}}</td>
+    <td>{{product.price |currency:"INR":"symbol"}}</td>
+    <td>{{product.qty}}</td>
+    <td>{{product.nprice |currency:"INR":"symbol"}}</td>
+  </tr>
 
+</table>
+
+  <h5>Total (Rs): {{this.userDetails.totalAmount |currency:"INR":"symbol"}}</h5>
+  <div>
+    <button (click)="proceed()">Proceed and logout</button>
+
+    <button routerLink="/product" style="margin: 0px 40px;">Back</button>
   </div>
-
-  <h3>Total (Rs): {{this.userDetails.totalAmount}}</h3>
-  <button routerLink="/login" >Proceed and logout</button>
+ 
