@@ -39,17 +39,19 @@ export class LoginComponent implements OnInit {
    checkLogin(){
      this.flagsCheck = true;
     if(this.loginForm.controls['email'].value  && this.loginForm.controls['password'].value){
-      this.userservice.login(this.loginForm.value).subscribe((result:any)=>{
-        if(result.success){
-          localStorage.setItem("userdetails", JSON.stringify(result.data));
-         this.router.navigate(['/product']);
-        }else{
+    //   this.userservice.login(this.loginForm.value).subscribe((result:any)=>{
+    //     if(result.success){
+      // localStorage.setItem("userdetails", JSON.stringify(result.data));
+      // this.router.navigate(['/product']);
+    //     }else{
          
-        }
-      },
-      error => {
-        alert("Error in Login");
-    })
+    //     }
+    //   },
+    //   error => {
+    //     alert("Error in Login");
+    // })
+    localStorage.setItem("userdetails", JSON.stringify(this.loginForm.value));
+         this.router.navigate(['/product']);
       
     }else{
       alert("email or password is incorrect");
